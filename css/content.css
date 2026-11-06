@@ -1,0 +1,371 @@
+/*二级栏目对应页面*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/*去点*/
+
+
+/*当前位置*/
+
+.path {
+    background: url(../images/tl_icon.gif) 0 center no-repeat;
+    height: 23px;
+    line-height: 23px;
+    width: 720px;
+    margin: 0 auto;
+    color: #999999;
+    /*文字颜色设置*/
+    text-align: left;
+    text-indent: 4ex;
+    border-bottom: 1px solid #CCC;
+    font-size: 12px;
+}
+
+
+/*一般的文字排版*/
+
+.txt {
+    margin: 0 auto;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.txt p {
+    text-align: left;
+    text-indent: 4ex;
+    font-size: 18px;
+    line-height: 150%;
+    color: #333333;
+}
+
+.txt a {
+    color: #36C;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+.txt a:hover {
+    color: #C00;
+    text-decoration: underline;
+}
+
+
+/*居中的文字排版*/
+
+.txt2 {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.txt2 p {
+    text-align: left;
+    font-size: 20px;
+    line-height: 150%;
+    color: #333333;
+}
+
+.txt2 a {
+    color: #36C;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+.txt2 a:hover {
+    color: #C00;
+    text-decoration: underline;
+}
+
+
+/*加边框的按钮*/
+
+.tl_btn {
+    border: #09F solid 1px;
+    margin: 10px;
+    padding: 2px;
+}
+
+
+/*图片列表*/
+
+.img_list img {
+    height: 170px;
+    width: 195px;
+    border: 0 none;
+}
+
+.img_list li {
+    float: left;
+    margin: 15px 15px;
+    text-align: center;
+}
+
+.img_list a {
+    border: 1px solid #CCCCCC;
+    display: block;
+    padding: 4px;
+    width: 195px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.img_list a:hover {
+    border: 1px solid #666666;
+    text-decoration: none;
+    color: #333;
+}
+
+
+/*提示语*/
+
+.tips {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+}
+
+
+/*打写框*/
+
+.outer2 {
+    width: 509px;
+    height: 525px;
+    position: relative;
+    background: url(../images/pic20.jpg) no-repeat;
+    margin: 0 auto;
+}
+
+.txt_outer1 {
+    width: 380px;
+    height: 195px
+}
+
+.txt1 {
+    width: 380px;
+    height: 195px;
+    font-size: 30px;
+    line-height: 40px;
+    border: none medium;
+    background-color: transparent;
+}
+
+
+/*表格*/
+
+.tbl {
+    border-collapse: collapse;
+    /*合并边框，去除双边框*/
+    font-size: 16px;
+    line-height: 25px;
+    width: 550px;
+    margin: 0 auto;
+}
+
+.tbl td {
+    border: 1px #666 solid;
+    padding: 10px;
+}
+
+
+/*chx0288添加*/
+
+
+/*二级栏目对应页面*/
+
+.content_path {
+    background: url(../images/icon.gif) 0 top no-repeat;
+    height: 20px;
+    line-height: 20px;
+    width: 100%;
+    margin: 0 auto;
+    color: #999999;
+    /*文字颜色设置*/
+    text-align: left;
+    text-indent: 7ex;
+    border-bottom: 1px solid #CCC;
+}
+
+.content_main {
+    text-align: center;
+}
+
+.content_main p,
+.content_main {
+    FONT-SIZE: 18px;
+    MARGIN: 10px 0px;
+    LINE-HEIGHT: 40px
+}
+
+.content_title,
+.content_main p.content_title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content_title2 {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content_txt1 {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    border: none medium;
+}
+
+.content_txt2 {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    border: none medium;
+    text-align: left;
+}
+
+.content_txt2 p {
+    text-align: left;
+}
+
+.con_bt li {
+    list-style: none;
+    font-size: 18px;
+    float: left;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.con_bt li a {
+    cursor: pointer;
+    display: block;
+    background: url(../images/bt_bg1.jpg) no-repeat;
+    height: 45px;
+    width: 274px;
+    padding-left: 0px;
+}
+
+.con_bt li a:hover,
+.con_bt li a.oncl {
+    background: url(../images/bt_bg2.jpg) no-repeat;
+}
+
+.div_center {
+    text-align: center;
+    margin: 5px auto;
+}
+
+.con_bt_01 {
+    background: url(../images/bt_bg1.jpg) no-repeat;
+    height: 40px;
+    width: 151px;
+    font-size: 18px;
+    font-weight: 24px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.con_bt_02 {
+    background: url(../images/bt_bg2.jpg) no-repeat;
+    height: 40px;
+    width: 151px;
+    font-size: 18px;
+    font-weight: 30px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.center{
+text-align:center;
+width: 100%;
+
+}
+
+.bt1{
+     background: url(../images/Bu1.png); 
+     display: inline-block; 
+     width: 199px; 
+     height: 75px;
+     font-size: 30px;
+     text-align: center;
+     line-height: 75px;
+     font-weight: bolder;
+     margin: 10px;
+}
+.bt2{
+     background: url(../images/Bu2.png); 
+     display: inline-block; 
+     width: 199px; 
+     height: 75px;
+     font-size: 30px;
+     text-align: center;
+     line-height: 75px;
+     font-weight: bolder;
+
+}
+
+.btL1{
+     background: url(../images/BuL1.png); 
+     display: inline-block; 
+     width: 400px; 
+     height: 75px;
+     font-size: 32px;
+     text-align: center;
+     line-height: 75px;
+     font-weight: bolder;
+     margin: 10px;
+}
+.btL2{
+     background: url(../images/BuL2.png); 
+     display: inline-block; 
+     width: 400px; 
+     height: 75px;
+     font-size: 32px;
+     text-align: center;
+     line-height: 75px;
+     font-weight: bolder;
+
+}
+
+
+.btZ1{
+     background: url(../images/BuZ1.png); 
+     display: inline-block; 
+     width: 300px; 
+     height: 75px;
+     font-size: 24px;
+     text-align: center;
+     line-height: 75px;
+     font-weight: bolder;
+     margin: 10px;
+}
+.btZ2{
+     background: url(../images/BuZ2.png); 
+     display: inline-block; 
+     width: 300px; 
+     height: 75px;
+     font-size: 24px;
+     text-align: center;
+     line-height: 75px;
+     font-weight: bolder;
+
+}

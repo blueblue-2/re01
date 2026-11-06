@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>课件样式表编辑</title>
+
+<style type="text/css">
+.td_selected{
+background:#dbf4bd;
+cursor:pointer;
+width:50%;
+
+}
+.td_se{
+cursor:pointer;
+width:50%;
+
+}
+
+table{
+    border-collapse:collapse;
+}
+td{
+    background:#ffc;
+    border:solid 1px #f90;
+    height:22px;
+}
+.table1{
+    border-collapse:collapse;
+}
+.table1 td{
+    background:#FFFFFF;
+    border:solid 1px #f90;
+    height:22px;
+	cursor:pointer;
+}
+.table1 td.td1{
+    background:#FFFF00;
+    border:solid 1px #f90;
+    height:22px;
+	cursor:pointer;
+}
+.table1 td.td2{
+    background:#FFFFFF;
+    border:solid 1px #f90;
+    height:22px;
+	cursor:pointer;
+}
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size:12px;
+}
+.div_css{
+
+margin-left:10px;
+
+}
+.css_index{
+background:#FFFFCC;
+
+}
+</style>
+<script language="javascript">
+var a1 = "";
+
+function show1(n){
+if(a1==""){
+n.className="td1";
+}else{
+a1.className="td2";
+n.className="td1";
+}
+a1=n;
+/*
+	if(n==1){
+		oElement1 = document.getElementById(n);
+		oElement1.className="td1";
+		oElement2 = document.getElementById("td2");
+		oElement3 = document.getElementById("div1");
+		oElement4 = document.getElementById("div2");		
+		oElement1.className="td_selected";
+		oElement2.className="td_se";
+		oElement3.style.display="block";
+		oElement4.style.display="none";
+		
+	}else{
+		oElement1 = document.getElementById("td1");
+		oElement2 = document.getElementById("td2");
+		oElement3 = document.getElementById("div1");
+		oElement4 = document.getElementById("div2");		
+		oElement1.className="td_se";
+		oElement2.className="td_selected";
+		oElement3.style.display="none";
+		oElement4.style.display="block";
+	
+	}
+
+*/
+}
+var str_W=0;
+var str_H=0;
+var str_index_W = 0;
+function DrawImage(str){ 
+
+var temp_img = document.getElementById('img');//.获取图片对象
+temp_img.src=str;//f给对象赋值src
+
+//var kuan = document.getElementById('kuan').value;//o获取宽度
+//var gao = document.getElementById('gao').value;//r获取标准高度
+//var size = document.getElementById('size').value;//a获取标准大小
+var image=new Image(); //s实例化一个图片对象
+image.src=document.getElementById('img').src;//p将原来的src付给对象
+//alert("1111"+str);
+if(image.width>0 && image.height>0){//.如果宽高都存在则表示已经加载完成
+//alert("W:"+image.width);
+//alert("H"+image.height);
+str_W=image.width;
+str_H=image.height;
+alert(str_W);
+
+}else{
+str_W=0;
+str_H=0;
+//alert(str+"为空白图片");
+}
+}
+
+
+function get_css(nal){
+
+var str_css_all= "";
+var str_css_index= "";
+var str_css_outer_t= "";
+var str_css_outer_m= "";
+var str_css_outer_b="";
+var str_css_left_nav="";
+
+	oEle_text_css = document.getElementById("text_css");
+	var text_css = "";
+	var str_index = "";//设置首页
+	
+	oEle = document.getElementsByName("index_bg");//首页背景
+		
+	if(oEle.length){
+	   for(var i = 0 ;i<oEle.length;i++){
+		
+		  if(i==0){DrawImage(oEle[0].value); str_index_W=str_W;}
+		str_index =".index_outer{ background:url("+oEle[0].value+") no-repeat; width:"+str_W+"px; height: "+str_H+"px; margin:0 auto;  position:relative;}";
+			
+	  }
+	}
+	else{
+		  //alert("空");
+	};
+	text_css =str_index;
+	
+	var str_index_nav = "";	//设置首页导航
+	var str_index_nav_dir = "";//记录首页导航方向
+	var str_index_nav_dir2 = "";//记录首页导航方
+	oEle_i_n_d = document.getElementsByName("index_nav_dir");	//首页导航是横向还是竖
+	for(i=0;i<oEle_i_n_d.length;i++){
+		if(oEle_i_n_d[i].checked == true){
+		 if(oEle_i_n_d[i].value=="横式"){
+			 str_index_nav_dir = ".nav_i li{float:left;}";
+			 str_index_nav_dir2 = "H";
+		 }else{
+			 str_index_nav_dir = ".nav_i li{}";
+			 str_index_nav_dir2 = "C"; 
+		 }
+
+    	}
+   	 }//for
+ 	text_css +=str_index_nav_dir;
+	
+	
+oEle_i_n = document.getElementsByName("index_nav");//首页导航
+	
+	if(oEle_i_n.length){
+			var str1=".nav_i{ position:absolute; left:"+oEle_i_n[3].value+"px; top:"+oEle_i_n[4].value+"px;}"
+			DrawImage(oEle_i_n[0].value);
+			var str2 = "";
+			
+			var str3 =".nav_i li a:hover{ background:url("+oEle_i_n[0].value+") no-repeat; }"
+			a1 = oEle_i_n[5].value=oEle_i_n[5].value-0;
+			a1 = a1+1;
+			////alert("首页导航个====数"+a1);
+			for(i=1;i<a1;i++){
+			var ii = 0;
+			
+			if(str_index_nav_dir2=="C"){
+			ii = (i-1)*str_H/(a1-1);
+			////alert(ii);
+			str2 = ".nav_i li a{ display:block;width:"+str_W+"px; height:"+str_H/(a1-1)+"px; text-indent:-9999px;}";
+			str3 += ".nav_i li.nav_i_0"+i+" a:hover{background-position:0 -"+ii+"px; }";
+			}else{
+			ii = (i-1)*str_W/(a1-1);
+			////alert(ii);
+			str2 = ".nav_i li a{ display:block;width:"+str_W/(a1-1)+"px; height:"+str_H+"px; text-indent:-9999px;}";
+			str3 += ".nav_i li.nav_i_0"+i+" a:hover{background-position:-"+ii+"px 0; }";
+			}
+			
+			
+	  		}
+	}
+	else{
+		  //alert("空");
+	};
+ 	text_css +=str1+str2+str3;	
+	str_css_index = str_index+str_index_nav_dir+str1+str2+str3;
+	
+
+	
+oEle_outer_n = document.getElementsByName("outer_top");//内页头部与一级导航
+
+	if(oEle_outer_n.length){
+			var str4=".outer{margin:0 auto; width:"+str_index_W+"px; position:relative; }";
+			DrawImage(oEle_outer_n[0].value);
+			var str5 = ".top{background:url("+oEle_outer_n[0].value+") no-repeat; height:"+str_H+"px; position:relative; }";
+			
+			var str6 =".nav{position:absolute; left:"+oEle_outer_n[4].value+"px; top:"+oEle_outer_n[5].value+"px}";
+			var str7 =".nav li{ float:left;}";
+			DrawImage(oEle_outer_n[1].value);
+			
+			
+			var str9=".nav li a:hover,.on{background:url("+oEle_outer_n[1].value+") no-repeat; }";
+			a1=oEle_outer_n[6].value-0;
+			a1=a1+1;
+			var str10="";
+		//	//alert("ddddd====内页一级栏目个数："+str_W+"--/-"+a1);
+			var str8 =".nav li a{display:block; width:"+str_W/(a1-1)+"px; height:"+str_H+"px; text-indent:-9999px;}";
+			for(i=1;i<a1;i++){
+			var ii = 0;
+		     ii = (i-1)*str_W/(a1-1);
+					
+			str10 += ".nav li.nav_0"+i+" a:hover, .nav li.nav_0"+i+" a.on{background-position:-"+ii+"px 0;}";
+			////alert("内页头部与一级导航:"+str10);
+			
+
+	  		}
+	}
+	else{
+		  //alert("空");
+	};
+ 	text_css +=str4+str5+str6+str7+str8+str9+str10;	
+	str_css_outer_t = str4+str5+str6+str7+str8+str9+str10;
+		
+oEle_outer_m = document.getElementsByName("outer_main");//内页中间部
+
+	if(oEle_outer_m.length){
+			var str11=".m_c{ background:url("+oEle_outer_m[1].value+") repeat-y;  zoom:1; }";
+			var str12=".m_t{ background:url("+oEle_outer_m[0].value+") no-repeat;  zoom:1; }";
+			DrawImage(oEle_outer_m[2].value);
+			str_H = str_H + 200;//设置内页内容底部至少高度，在原来图片加200
+			var str13=".m_b{ background:url("+oEle_outer_m[2].value+") no-repeat bottom; min-height:"+str_H+"px; _height:"+str_H+"px; }";
+			
+			var str14 =".m_left{margin:0 "+oEle_outer_m[3].value+"px;  width:"+oEle_outer_m[4].value+"px;  float:left; display:inline;}";	
+			
+			a1=oEle_outer_n[6].value-0;
+			a1=a1+1;
+			var str15="";
+			for(i=1;i<a1;i++){
+			var ii = 0;
+			str15 +=".l_t_0"+i+"{ background:url(../images/left_top_"+i+".jpg) no-repeat;  zoom:1;  }"
+			////alert("二级上的一级图片"+str15);
+			
+	  		}
+			
+			var str16 =".l_c{ background:url("+oEle_outer_m[8].value+") repeat-y;  zoom:1; }";
+			DrawImage(oEle_outer_m[9].value);
+			str_H = str_H + 200;//设置内页二级底部至少高度，在原来图片加200
+			var str17 =".l_b{ background:url("+oEle_outer_m[9].value+") no-repeat bottom; min-height:"+str_H+"px; _height:"+str_H+"px; }";
+			
+			var str18 =".m_right{ width:"+oEle_outer_m[10].value+"px; margin:"+oEle_outer_m[11].value+"px; float:left; display:inline;}";//右边内容设置样式
+			
+			DrawImage(oEle_outer_m[5].value);
+			a2 = oEle_outer_m[7].value-0;
+			str_H = str_H + a2;
+			var str19 = "#main-nav {padding: "+str_H+"px "+oEle_outer_m[15].value+"px; font-family:\"微软雅黑\",\"幼圆\",\"黑体\";}";
+			
+			var str20 = "#main-nav li {list-style: none;font-size:24px; padding-bottom:"+oEle_outer_m[16].value+"px; }";
+			DrawImage(oEle_outer_m[12].value);
+			a1=oEle_outer_m[18].value-0;
+			a1=a1+1;
+			var str20_1 = "#main-nav li a.nav-top-item {background:url("+oEle_outer_m[12].value+") no-repeat;cursor: pointer;display: block; width:"+str_W/2+"px;height:"+str_H/(a1-1)+"px; text-decoration: none; text-indent:-9999px }";
+			 
+			
+			var str21="";
+		
+			str_W = str_W/2;
+			for(i=1;i<a1;i++){
+			var i1 = 0;
+			i1 = (i-1)*str_H/(a1-1);
+					
+			str21 +="#main-nav li.nav_1_"+i+" a.nav-top-item{ background-position:0 -"+i1+"px;}";
+			str21 +="#main-nav li.nav_1_"+i+" a.nav-top-item:hover, #main-nav li.nav_1_"+i+" a.current{background-position:-"+str_W+"px -"+i1+"px;}";
+
+	  		}
+			var str22="#main-nav li ul.three li{font-family:\""+oEle_outer_m[19].value+"\"; font-size:"+oEle_outer_m[20].value+"px;  padding-left:"+oEle_outer_m[21].value+"px; padding-top:"+oEle_outer_m[22].value+"px; height:"+oEle_outer_m[23].value+"px;}";
+			
+
+			var str23="#main-nav li ul.three li a{  background:url("+oEle_outer_m[24].value+") no-repeat left "+oEle_outer_m[26].value+"px; display:block; padding-left:"+oEle_outer_m[21].value+"px; height:"+oEle_outer_m[23].value+"px; line-height:30px;color:#908781;}";
+			
+			
+			 var str23_1="#main-nav li ul.three li a:hover{}";
+			 var str24="#main-nav li ul.three li a.current, #main-nav li ul li a:hover{ background-position:left "+oEle_outer_m[25].value+"px; color:#191818;}";
+			 var str25="#main-nav li ul.three li a.current:hover{}";
+
+	}
+	else{
+		  //alert("空");
+	};
+ 	text_css +=str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str20_1+str21+str22+str23+str23_1+str24+str25;	
+	str_css_outer_m = str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str20_1+str21+str22+str23+str23_1+str24+str25;
+	
+	str_css_left_nav = str19+str20+str20_1+str21;
+		
+	oEle_outer_b = document.getElementsByName("outer_bt");//内页底部
+	DrawImage(oEle_outer_b[0].value);
+	var str26=".foot{ background:url("+oEle_outer_b[0].value+") no-repeat; height:"+str_H+"px;}";
+	text_css +=str26;
+	str_css_outer_b = str26;
+
+
+oEle_text_css.value = text_css;
+if(nal==1) oEle_text_css.value=str_css_index;
+if(nal==2) oEle_text_css.value=str_css_outer_t;
+if(nal==3) oEle_text_css.value=str_css_outer_m;
+if(nal==4) oEle_text_css.value=str_css_outer_b;
+if(nal==5) oEle_text_css.value=str_css_left_nav;
+
+
+}
+
+
+
+
+</script>
+</head>
+
+<body>
+<div class="div_css">
+<div>
+  <div align="center"><h3><strong>课件样式表编辑</strong></h3></div>
+</div>
+
+<div>
+  <table width="100%" border="1" cellspacing="0" cellpadding="0" class="table1">
+  <tr>
+    <td onclick="show1(this);" class="td1"><div align="center"><strong>全部显示</strong></div></td>
+    <td onclick="show1(this);"><div align="center"><strong>首页设置</strong></div></td>
+    <td onclick="show1(this);"><div align="center"><strong>内页设置-头部</strong></div></td>
+    <td onclick="show1(this);"><div align="center"><strong>内页设置-中间部</strong></div></td>
+    <td onclick="show1(this);"><div align="center"><strong>内页设置-底部</strong></div></td>
+  </tr>
+</table>
+
+</div>
+
+
+
+ <div class="css_index">
+   <div align="left">
+   <p ><strong>首页设置</strong>
+     <input type="submit" name="Submit2" onclick="get_css(1);" value="取得代码" />
+   </p>
+   <table width="100%" align="center">
+<tr>
+<td width="80">首页背景图：</td>
+<td >路径：
+  <input name="index_bg"   value="../images/index_bg.jpg" size="25" />
+  <div style="display:none;">
+  宽度width：
+  <INPUT name="index_bg"  value="1002" size="6"  >
+  px &nbsp;&nbsp;高度：
+  <input name="index_bg"  value="680" size="6">
+px</div>
+<div style="display:none;"><img src="../images/index_bg.jpg" id="img" name="img" /></div></td>
+</tr>
+<tr>
+<td>首页导航(选中状态)：</td>
+<td>路径：
+  <input name="index_nav"   value="../images/index_nav.jpg" size="25" />
+宽度width：
+<input name="index_nav"  value="147" size="6">
+px --N&nbsp;&nbsp;高度：
+<input name="index_nav"  value="43" size="6" />
+px--N<br />
+  距离原点的宽度width-X：
+  <input name="index_nav"  value="500" size="6">
+px &nbsp;&nbsp;高度-Y：
+<input name="index_nav"  value="500" size="6" />
+px；
+
+<label>
+  <input type="radio" name="index_nav_dir" value="横式" />
+  横式</label>
+<label>
+  <input type="radio" name="index_nav_dir" value="竖式" />
+  竖式<br />
+</label>
+一级栏目数：
+<input name="index_nav"  value="5" size="4" />
+个</td>
+</tr>
+</table>
+ 
+<div>
+<br />
+  <div align="center"></div>
+</div>
+ </div>
+</div><!--首页设置完毕-->
+
+
+<!--内页设置开始-->
+<!--内页头部设置开始-->
+<div class="css_outer_top">
+   <div align="left">
+   <p ><strong>内页设置-头部</strong>
+     <input type="submit" name="Submit22" onclick="get_css(2);" value="取得代码" />
+   </p>
+   <table width="100%" align="center">
+<tr>
+<td width="80">内页头部图片：不要切到内容的边框</td>
+<td>路径：
+  <input name="outer_top"   value="../images/outer_top.jpg" size="25" /></td>
+</tr>
+<tr>
+<td>内页导航(选中状态)：</td>
+<td>路径：
+  <input name="outer_top"   value="../images/outer_nav.jpg" size="25" />
+  &nbsp;宽度width：
+  <input name="outer_top"  value="43" size="6" />
+px--N &nbsp;&nbsp;高度：
+<input name="outer_top"  value="147" size="6" />
+px--N<br />
+  距离原点的宽度width：
+  <input name="outer_top"  value="500" size="6">
+px &nbsp;&nbsp;高度：
+<input name="outer_top"  value="500" size="6" />
+px
+<label><br />
+</label>
+一级栏目数：
+<input name="outer_top"  value="5" size="4" />
+个</td>
+</tr>
+</table>
+ 
+<div>
+<br />
+  <div align="center"></div>
+</div>
+ </div>
+ 
+</div><!--内页头部设置完毕-->
+<!--内页中间部分设置开始-->
+<div class="css_outer_main">
+   <div align="left">
+   <p ><strong>内页设置-中间部</strong>
+     <input type="submit" name="Submit222" onclick="get_css(3);" value="取得代码" />
+   </p>
+   <table width="100%" align="center">
+<tr>
+<td width="80">中间部-顶部图片：</td>
+<td >
+  路径：
+    <input name="outer_main"   value="../images/main_top.jpg" size="25" />
+&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td>中间部-背景重复图片：</td>
+<td>路径：
+  <input name="outer_main"   value="../images/main_bg.jpg" size="25" />
+  &nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td>中间部-底部图片：</td>
+<td>路径：
+  <input name="outer_main"   value="../images/main_bt.jpg" size="25" />
+  &nbsp;</td>
+</tr>
+<tr>
+<td>左边二级栏目：</td>
+<td>
+  原点到二级栏目距离：
+  <input name="outer_main"  value="50" size="6" />
+px ，
+二级栏目宽度： 
+  <input name="outer_main"  value="273" size="6" />
+px ；</td>
+</tr>
+<tr>
+<td>左边-顶部(一级栏目)图片：</td>
+<td>第一个图片的路径：
+  <input name="outer_main"   value="../images/left_top_1.jpg" size="25" />
+  ，
+一级栏目个数： 
+  <input name="outer_main"  value="5" size="6" />
+ ，与二级栏目的底边距（padding）： 
+  <input name="outer_main"  value="10" size="6" />
+px （说明：二级栏目顶上的一级栏目图片要分别切割单独图片，命名规则：left_top_1,left_top_2，如果没有的情况则切割一个1像素的空白gif图片） </td>
+</tr>
+<tr>
+<td>左边-背景重复图片：</td>
+<td>路径：
+  <input name="outer_main"   value="../images/left_bg.jpg" size="25" />
+  &nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td>左边-底部图片：</td>
+<td>路径：
+  <input name="outer_main"   value="../images/left_bt.jpg" size="25" />
+  &nbsp;</td>
+</tr>
+<tr>
+<td>右边内容框：</td>
+<td>空白内容框（显示内容）宽度：
+  <input name="outer_main"  value="750" size="6" />
+px， 显示内容边距：
+<input name="outer_main"  value="10" size="6" />
+px------[11]</td>
+</tr>
+<tr>
+<td>所有二级栏目（正常状态与选中状态）-图片：
+  <br />
+  <input type="submit" name="Submit2222" onclick="get_css(5);" value="取得代码" /></td>
+<td>路径：
+  <input name="outer_main"   value="../images/left_nav.jpg" size="25" />
+&nbsp;&nbsp;<br />
+单个按钮的宽度width：
+<input name="outer_main"  value="222" size="6" />
+px--N &nbsp;&nbsp;高度：
+<input name="outer_main"  value="47" size="6" />
+px--N，二级栏目与二级框架的左边
+<label>距：
+<input name="outer_main"  value="10" size="6" />
+px ；每个按钮之间的底边距（padding-bottom）： 
+<input name="outer_main"  value="10" size="6" />
+px -----[16]<br />
+</label>
+选中状态边距（左正右选）：
+<input name="outer_main"  value="250" size="6" />
+px--N<br />
+二级栏目总数：
+<input name="outer_main"  value="10" size="4" />
+个</td>
+</tr>
+<tr>
+<td>三级栏目：</td>
+<td>字体：
+  <input name="outer_main"   value="黑体" size="6" />
+，&nbsp;&nbsp;字体大小：
+<input name="outer_main"  value="22" size="6" />
+px， &nbsp;缩进：
+<input name="outer_main"  value="20" size="6" />
+px，上边距：
+<input name="outer_main"  value="5" size="6" />
+px，高度：
+<input name="outer_main"  value="30" size="6" />
+px<br />
+背景图：
+<input name="outer_main"   value="../images/l_li_2.png" size="25" />
+ 选中状态边距（上选下正）：
+ <input name="outer_main"  value="8" size="6" />
+px，正常状态边距：
+ <input name="outer_main"  value="-22" size="6" />
+px</td>
+</tr>
+</table>
+ </div>
+ 
+</div>
+
+<div class="css_outer_bu">
+   <div align="left">
+   <p ><strong>内页设置-底部</strong>
+     <input type="submit" name="Submit223" onclick="get_css(4);" value="取得代码" />
+   </p>
+   <table width="100%" align="center">
+<tr>
+<td width="80">底部图片：</td>
+<td>路径：
+  <input name="outer_bt"   value="../images/outer_bt.jpg" size="25" /></td>
+</tr>
+</table>
+ 
+<div>
+<br />
+  <div align="center"></div>
+</div>
+ </div>
+ 
+</div>
+
+
+<div>
+<div>复制以下代码到css.css：  <input type="submit" name="Submit" onclick="get_css();" value="更新代码" />
+</div>
+  <textarea name="text_css" id="text_css" rows="10" style="width:100%;"></textarea>
+</div>
+</div>
+
+</body>
+</html>
